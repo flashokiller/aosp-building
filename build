@@ -44,14 +44,10 @@ tg_post_msg "<b>MetaLava is building rn</b>" "$CHATID"
 make_rom(){
 tg_post_msg "<b>DotOS CI Build Triggered for Ysl</b>" "$CHATID"
                 make bacon -j14
-if [ out/target/product/ysl/*zip ]; then
-		zip=$(up out/target/product/ysl/*zip)
-		echo " "
-		echo "$zip"
-		tg_post_msg "<b>Build Completed</b>%0A%0A<b>Link : </b> <code>"$zip"</code>" "$CHATID"
-	else
-		tg_post_msg "<b>Build Failed, check cirrus console</b>" "$CHATID"
-	fi
+url=$(up out/target/product/ysl/*zip)
+	echo " "
+	echo "$url"
+	tg_post_msg "<b>Build Completed</b>%0A%0A<b>Link : </b> <code>"$url"</code>" "$CHATID"
 }
 make_metalava
 make_rom
