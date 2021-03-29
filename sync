@@ -1,25 +1,38 @@
 #!/bin/bash
 
-MANIFEST=git://github.com/DotOS/manifest.git
+MANIFEST=git://github.com/ElectroPerf/manifest-dot.git
 BRANCH=dot11
 
 mkdir -p /tmp/rom
 cd /tmp/rom
 
+# Telgram env setup
+export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
+export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
+
+tg_post_msg() {
+        curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
+        -d "parse_mode=html" \
+        -d text="$1"
+
 # Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice. Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things.
+tg_post_msg "<b>DotOS Repo init done</b>" "$CHATID"
 repo init --no-repo-verify --depth=1 -u "$MANIFEST" -b "$BRANCH" -g default,-device,-mips,-darwin,-notdefault
 git config --global user.name MiDoNaSR545
 git config --global user.email ahmednasr1973913@gmail.com
 
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
+tg_post_msg "<b>DotOS Repo Sync Started</b>" "$CHATID"
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16
-
+tg_post_msg "<b>DotOS Repo Sync Done</b>" "$CHATID"
 # Sync stuffs
+tg_post_msg "<b>Cloning Ysl dt</b>" "$CHATID"
 find hardware/qcom-caf/msm8996/display hardware/qcom-caf/msm8996/audio hardware/qcom-caf/msm8996/media vendor/codeaurora/telephony .repo/ -delete
 git clone https://github.com/wave-project/vendor_codeaurora_telephony --depth=1 --single-branch vendor/codeaurora/telephony/
 git clone --single-branch https://github.com/Jabiyeff/android_hardware_qcom_media hardware/qcom-caf/msm8996/media
 git clone --single-branch https://github.com/Jabiyeff/android_hardware_qcom_display hardware/qcom-caf/msm8996/display
 git clone https://github.com/LineageOS/android_hardware_qcom_audio --single-branch -b lineage-18.1-caf-msm8996 hardware/qcom-caf/msm8996/audio
-git clone https://github.com/MiDoNaSR545/android_device_xiaomi_ysl.git --depth=1 -b dotos device/xiaomi/ysl
+git clone https://github.com/MiDoNaSR545/android_device_xiaomi_ysl.git --depth=1 -b dotosp device/xiaomi/ysl
 git clone https://github.com/Hatsune71/vendor_ysl --depth=1 --single-branch vendor/xiaomi/ysl
 git clone https://github.com/stormbreaker-project/kernel_xiaomi_ysl.git --depth=1 -b eleven kernel/xiaomi/ysl
+tg_post_msg "<b>Ysl DT cloning Done</b>" "$CHATID"
