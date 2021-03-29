@@ -1,9 +1,9 @@
 env: # Environt variable to pass to all tasks
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone repo
-    rclone_config: "ENCRYPTED[84378bb65c63f2d8176c7aac3d1210e5c957dbe8ec383833510c6bcee32a7c2202b38de9b6bc7cc7463b9c8523a9e154]"
-    CHATID: "ENCRYPTED[0a5446adacbe1648ea7b37f53530585d0b6c2ee8e567ff39bfafc9d0d27656df52cde0cd41c1811924ae11fb8d51dace]"
-    API_BOT: "ENCRYPTED[00e2f1e3a03c85dac4bf5589eca9d707dc84df8aa13d722740e97cad07a5742397f55d9fdaaa9c4e8b458e83e16ceff0]"
+    rclone_config: "ENCRYPTED[964b7f9a5a94b317aff299697dcf322a6a36c8b63cceabf85edbe315349aeb36d7dca8215e63e5ff095f6a4ef8995a6d]"
+    CHATID: "ENCRYPTED[a112033f94f22d60c7929f6bccfa3d73d7a2388295a4c20fc645d7b04b3cadd51941a753f39d8b2738714441e96512f1]"
+    API_BOT: "ENCRYPTED[0f7657343264b22e91a4634ef1e7a96d784fba51ce1b20baf56913772990d6a26c6fb625f8382434a5042f6770c74ee1]"
 task:
     name: MiDoNaSR
     timeout_in: 240m
