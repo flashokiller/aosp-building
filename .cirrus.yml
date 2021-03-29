@@ -6,10 +6,10 @@ env: # Environt variable to pass to all tasks
     API_BOT: "ENCRYPTED[0f7657343264b22e91a4634ef1e7a96d784fba51ce1b20baf56913772990d6a26c6fb625f8382434a5042f6770c74ee1]"
 task:
     name: MiDoNaSR
-    timeout_in: 240m
+    timeout_in: 120m
     container:
       image: apon77/aosp:latest
-      cpu: 16
+      cpu: 15
       memory: 24G
     download_ccache_background_script:
       - ./download_ccache
