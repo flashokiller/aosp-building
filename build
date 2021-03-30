@@ -5,7 +5,7 @@ rm -rf .repo & # lets remove unnecessary things, so that no storage issue can oc
 
 # Normal build steps
 . build/envsetup.sh
-lunch dot_ysl-userdebug
+lunch ssos_ysl-userdebug
 export SELINUX_IGNORE_NEVERALLOWS=true
 export BUILD_BROKEN_DUP_RULES=true
 export ALLOW_MISSING_DEPENDENCIES=true
@@ -42,7 +42,7 @@ tg_post_msg "<b>MetaLava is building rn</b>" "$CHATID"
 }
 
 make_rom(){
-tg_post_msg "<b>DotOS CI Build Triggered for Ysl</b>" "$CHATID"
+tg_post_msg "<b>SSOS CI Build Triggered for Ysl</b>" "$CHATID"
                 make bacon -j14
 url=$(up out/target/product/ysl/*zip)
 	echo " "
