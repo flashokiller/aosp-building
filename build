@@ -17,8 +17,9 @@ export KBUILD_BUILD_HOST=ubuntu
 #export CROSS_COMPILE_ARM32=../gcc32/bin/arm-eabi-
 export PATH="/tmp/kernel/twisted-clang/bin:$PATH"
 mkdir ../out
-make O=../out ysl-perf_defconfig ARCH=arm64 -j8 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-make O=../out ARCH=arm64 -j10 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- && sleep 5m
+make O=../out ysl-perf_defconfig ARCH=arm64 -j6 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+make O=../out ARCH=arm64 -j6 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- && sleep 10m 
+kill %1
 
 # upload function for uploading rom zip file! I don't want unwanted builds in my google drive haha!
 # Telgram env setup
