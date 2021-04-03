@@ -1,26 +1,45 @@
 #!/bin/bash
 
-MANIFEST=git://github.com/ShapeShiftOS/android_manifest.git
-BRANCH=android_11
+#MANIFEST=https://github.com/AospExtended/manifest
+#BRANCH=11.x
 
-mkdir -p /tmp/rom
-cd /tmp/rom
+#mkdir -p /tmp/aex # Where to sync source
+#cd /tmp/aex
+mkdir -p /tmp/kernel
+#setup
+sudo apt-get install -y bc python-dev flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip
+#repo init --no-repo-verify --depth=1 -u "$MANIFEST" -b "$BRANCH" -g default,-device,-mips,-darwin,-notdefault
 
-# Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice. Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things.
-repo init --no-repo-verify --depth=1 -u "$MANIFEST" -b "$BRANCH" -g default,-device,-mips,-darwin,-notdefault
-git config --global user.name MiDoNaSR545
-git config --global user.email ahmednasr1973913@gmail.com
+#git config --global user.name noob-214
+#git config --global user.email sandeeps567ingh@gmail.com
 
-# Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+# sync
+#repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
+#cloning
 # Sync stuffs
-cd build/soong && git remote add d https://github.com/SyntatiX-OS/build_soong -f && git cherry-pick 781bd3afedb8891ddbeab6f96555db68ca1a2ad3^..470a3a74636831eb89f3c274897a1483761e9079 && cd ../..
-find hardware/qcom-caf/msm8996/display hardware/qcom-caf/msm8996/audio hardware/qcom-caf/msm8996/media vendor/codeaurora/telephony .repo/ -delete
-git clone https://github.com/wave-project/vendor_codeaurora_telephony --depth=1 --single-branch vendor/codeaurora/telephony/
-git clone --single-branch https://github.com/Jabiyeff/android_hardware_qcom_media hardware/qcom-caf/msm8996/media
-git clone --single-branch https://github.com/Jabiyeff/android_hardware_qcom_display hardware/qcom-caf/msm8996/display
-git clone https://github.com/LineageOS/android_hardware_qcom_audio --single-branch -b lineage-18.1-caf-msm8996 hardware/qcom-caf/msm8996/audio
-git clone https://github.com/MiDoNaSR545/android_device_xiaomi_ysl-1.git --depth=1 -b r11.0 device/xiaomi/ysl
-git clone https://github.com/Hatsune71/vendor_ysl --depth=1 --single-branch vendor/xiaomi/ysl
-git clone https://github.com/stormbreaker-project/kernel_xiaomi_ysl.git --depth=1 -b eleven kernel/xiaomi/ysl
+#find hardware/qcom-caf/msm8996/display hardware/qcom-caf/msm8996/audio hardware/qcom-caf/msm8996/media vendor/codeaurora/telephony/ .repo/ -delete
+
+#git clone https://github.com/wave-project/vendor_codeaurora_telephony --depth=1 --single-branch vendor/codeaurora/telephony/
+#git clone https://github.com/Jabiyeff/android_hardware_qcom_media --depth=1 --single-branch hardware/qcom-caf/msm8996/media
+#git clone https://github.com/Jabiyeff/android_hardware_qcom_display --depth=1 --single-branch hardware/qcom-caf/msm8996/display
+#git clone https://github.com/LineageOS/android_hardware_qcom_audio --depth=1 --single-branch -b lineage-18.1-caf-msm8996 hardware/qcom-caf/msm8996/audio
+
+#git clone https://github.com/Noob-214/device_xiaomi_ysl_enforcing --depth=1 device/xiaomi/ysl
+#git clone https://github.com/Noob-214/Logan_Ysl -b Stable --depth=1 kernel/xiaomi/ysl
+#git clone https://github.com/ItsVixano/android_vendor_xiaomi_ysl --depth=1 -b r11.0 vendor/xiaomi/ysl
+#git clone https://github.com/lineageos/android\_packages\_resources\_devicesettings packages/resources/devicesettings  --depth=1
+
+# kernel
+#mkdir -p /tmp/kernel # Where to sync source
+cd /tmp/kernel
+git clone https://github.com/Noob-214/Logan_Ysl -b MaD --depth=1 -j8
+# Clang
+#cd Log*
+# git clone https://github.com/kdrag0n/proton-clang --depth=1 -j8
+# git clone https://github.com/Noob-214/android_kernel_xiaomi_msm8937-4.9 --depth=1 android
+git clone https://github.com/TwistedPrime/twisted-clang --depth=1 -j8 
+# Gcc
+#git clone https://github.com/mvaisakh/gcc-arm64 --depth=1 -j8 gcc64
+#git clone https://github.com/mvaisakh/gcc-arm --depth=1 -j8 gcc32
+
