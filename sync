@@ -33,7 +33,7 @@ sudo apt-get install -y bc python-dev flex bison gperf build-essential zip curl 
 # kernel
 #mkdir -p /tmp/kernel # Where to sync source
 cd /tmp/kernel
-git clone https://github.com/Noob-214/Logan_Ysl -b MaD --depth=1 -j8
+git clone https://github.com/JohnCena983/Logan_Ysl -b MaD --depth=1 -j8
 # Clang
 #cd Log*
 git clone https://github.com/kdrag0n/proton-clang --depth=1 -j8
