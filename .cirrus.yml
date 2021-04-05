@@ -5,11 +5,11 @@ env: # Environt variable to pass to all tasks
 
 task:
     name: John
-    timeout_in: 120m
+    timeout_in: 25m
     container:
       image: apon77/aosp:latest
       cpu: 8
-      memory: 08G
+      memory: 10G
    # download_ccache_background_script:
    #   - ./download_ccache
     sync_script:
