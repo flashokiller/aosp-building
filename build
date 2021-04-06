@@ -3,12 +3,6 @@ cd /tmp/kernel/Logan*
 #cd /tmp/aex 
 #rm -rf .repo & # lets remove unnecessary things, so that no storage issue can occur
 
-git config --global user.name JohnCena983
-git config --global user.email Amir609@outlook.com
-git revert 5100cfd1b418e1333fd80b86e10dab817a46656c
-git revert -m 1 c4451ea1b4e8dbbfefbe1236af17d22130acf574
-git revert -m 1 8a7a4ccdc5c12bf9e8cc6f1accec11cf992c1292
-
 # Normal build steps
 #. build/envsetup.sh
 #lunch aosp_ysl-userdebug
