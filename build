@@ -5,8 +5,9 @@ cd /tmp/kernel/Logan*
 
 git config --global user.name JohnCena983
 git config --global user.email Amir609@outlook.com
-git revert 1450fbe0421e723fae12d1712873b6104935eac6
-git revert 6a202eddfe09c630da9d6862777c0dc11b86a757
+git remote add lo https://github.com/JohnCena983/Logan_Ysl
+git fetch lo
+git cherry-pick 4371b6e8dec51d441fd3d4dd02776f664f907149
 git revert 5100cfd1b418e1333fd80b86e10dab817a46656c
 git revert c4451ea1b4e8dbbfefbe1236af17d22130acf574
 git revert 8a7a4ccdc5c12bf9e8cc6f1accec11cf992c1292
