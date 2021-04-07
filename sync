@@ -10,8 +10,8 @@ mkdir -p /tmp/kernel
 sudo apt-get install -y bc python-dev flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip
 #repo init --no-repo-verify --depth=1 -u "$MANIFEST" -b "$BRANCH" -g default,-device,-mips,-darwin,-notdefault
 
-#git config --global user.name noob-214
-#git config --global user.email sandeeps567ingh@gmail.com
+git config --global user.name noob-214
+git config --global user.email sandeeps567ingh@gmail.com
 
 # sync
 #repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
@@ -33,7 +33,7 @@ sudo apt-get install -y bc python-dev flex bison gperf build-essential zip curl 
 # kernel
 #mkdir -p /tmp/kernel # Where to sync source
 cd /tmp/kernel
-git clone https://github.com/Noob-214/Logan_Ysl -b MaD --depth=1 -j8
+git clone https://github.com/Noob-214/Logan_Ysl -b MaD -j8
 
 # Clang
 #cd Log*
