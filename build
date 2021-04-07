@@ -7,7 +7,7 @@ cd /tmp/kernel/Logan*
 #. build/envsetup.sh
 #lunch aosp_ysl-userdebug
 #export SELINUX_IGNORE_NEVERALLOWS=true
-
+git revert b3a9e7ebe32d5a15c9a2404dc628f8c1aabc6792
 # Kernel Build
 export ARCH=arm64 
 export SUBARCh=arm64
