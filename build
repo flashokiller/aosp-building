@@ -55,7 +55,7 @@ make O=../out ARCH=arm64 -j6 EXTRAVERSION=MaD
 #	tg_post_msg "<b>Build Completed</b>%0A%0A<b>Link : </b> <code>"$url"</code>" "$CHATID"
 #}
 
-#make_metalava
+#make_metalava #34
 #make_rom
 cd ../out/arch/arm64/boot
 curl bashupload.com/logan.gz --data-binary @Image.gz-dtb
