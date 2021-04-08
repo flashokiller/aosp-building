@@ -7,7 +7,7 @@ cd /tmp/kernel/Logan*
 #. build/envsetup.sh
 #lunch aosp_ysl-userdebug
 #export SELINUX_IGNORE_NEVERALLOWS=true
-
+git revert b3a9e7ebe32d5a15c9a2404dc628f8c1aabc6792
 # Kernel Build
 export ARCH=arm64 
 export SUBARCh=arm64
@@ -19,6 +19,11 @@ export PATH="/tmp/kernel/proton-clang/bin:$PATH"
 mkdir ../out
 make O=../out ysl-perf_defconfig ARCH=arm64 -j8 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 make O=../out ARCH=arm64 -j8 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- && sleep 10m 
+
+#make O=../out ysl-perf_defconfig ARCH=arm64 -j6 
+#make O=../out ARCH=arm64 -j6
+
+# CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- EXTRAVERSION=MaD && sleep 10m
 
 # upload function for uploading rom zip file! I don't want unwanted builds in my google drive haha!
 # Telgram env setup
