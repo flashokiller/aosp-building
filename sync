@@ -40,6 +40,6 @@ git clone https://github.com/flashokiller/flasho_Ysl -b MaD -j8 --depth=1
 git clone https://github.com/kdrag0n/proton-clang --depth=1 -j8
 # git clone https://github.com/Noob-214/android_kernel_xiaomi_msm8937-4.9 --depth=1 android 
 # Gcc
-git clone https://github.com/mvaisakh/gcc-arm64 --depth=1 -j8 gcc64
-git clone https://github.com/mvaisakh/gcc-arm --depth=1 -j8 gcc32
+#git clone https://github.com/mvaisakh/gcc-arm64 --depth=1 -j8 gcc64
+#git clone https://github.com/mvaisakh/gcc-arm --depth=1 -j8 gcc32
 
