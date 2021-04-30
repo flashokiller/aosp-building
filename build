@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /tmp/kernel/Logan*
+cd /tmp/kernel/flasho*
 #cd /tmp/aex 
 #rm -rf .repo & # lets remove unnecessary things, so that no storage issue can occur
 
@@ -11,7 +11,7 @@ git revert b3a9e7ebe32d5a15c9a2404dc628f8c1aabc6792
 # Kernel Build
 export ARCH=arm64 
 export SUBARCh=arm64
-export KBUILD_BUILD_USER=noob-214
+export KBUILD_BUILD_USER=mohit
 export KBUILD_BUILD_HOST=ubuntu
 #export CROSS_COMPILE=../gcc64/bin/aarch64-elf-
 #export CROSS_COMPILE_ARM32=../gcc32/bin/arm-eabi-
