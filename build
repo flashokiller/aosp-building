@@ -17,13 +17,13 @@ export KBUILD_BUILD_HOST=ubuntu
 #export CROSS_COMPILE_ARM32=../gcc32/bin/arm-eabi-
 export PATH="/tmp/kernel/proton-clang/bin:$PATH"
 mkdir ../out
-make O=../out ysl-perf_defconfig ARCH=arm64 -j8 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+#make O=../out ysl-perf_defconfig ARCH=arm64 -j8 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 make O=../out ARCH=arm64 -j8 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- && sleep 10m 
-
+#
 #make O=../out ysl-perf_defconfig ARCH=arm64 -j6 
 #make O=../out ARCH=arm64 -j6
 
-# CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- EXTRAVERSION=MaD && sleep 10m
+CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- EXTRAVERSION=MaD && sleep 10m
 
 # upload function for uploading rom zip file! I don't want unwanted builds in my google drive haha!
 # Telgram env setup
@@ -66,6 +66,32 @@ cp Image.gz-dtb any
 cd any && mv Image.gz-dtb Image.gz
 zip -r flasho *
 
-curl bashupload.com/ --data-binary @*.zip
+curl bashupload.com/ --data-binary @flasho
 
 
+# Telgram env setup
+#API_BOT=1768732147:AAFwOH-C3FETGF5GO6Hu0J0-OwEtelXpDSg
+#CHATID=1001470828701
+#export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
+#export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
+
+#tg_post_msg() {
+#        curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
+#       -d "parse_mode=html" \
+#        -d text="$1"
+#}
+
+# stuffs
+#up(){
+#	curl --upload-file $1 https://transfer.sh/
+#}
+
+#make_metalava(){
+#	m api-stubs-docs
+#	m system-api-stubs-docs
+#	m test-api-stubs-docs
+#}
+
+#make_rom(){
+#	tg_post_msg "<b>Build Triggered for ysl</b>" "$CHATID
+#	url=$(up out/target/product/
