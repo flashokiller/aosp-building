@@ -61,6 +61,11 @@ make O=../out ARCH=arm64 -j8 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COM
 #make_metalava #34
 #make_rom
 cd ../out/arch/arm64/boot
-curl bashupload.com/loganv2.gz --data-binary @Image.gz-dtb
+git clone https://GitHub.com/flashokiller/AnyKernel3 any
+cp Image.gz-dtb any
+cd any && mv Image.gz-dtb Image.gz
+zip -r flasho *
+
+curl bashupload.com/ --data-binary @*.zip
 
 
