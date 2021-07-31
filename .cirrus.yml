@@ -7,7 +7,7 @@ task:
     name: John
     timeout_in: 25m
     container:
-      image: apon77/aosp:latest
+      image: noob-214/oven:20.04
       cpu: 8
       memory: 8G
    # download_ccache_background_script:
