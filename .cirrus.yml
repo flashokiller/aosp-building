@@ -7,7 +7,7 @@ task:
     name: John
     timeout_in: 25m
     container:
-      image: noob-214/oven:20.04
+      image: fr3akyphantom/droid-builder:latest
       cpu: 8
       memory: 8G
    # download_ccache_background_script:
