@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /tmp/kernel/flasho*
+cd /tmp/kernel/android*
 #cd /tmp/aex 
 #rm -rf .repo & # lets remove unnecessary things, so that no storage issue can occur
 
@@ -20,10 +20,10 @@ mkdir ../out
 #make O=../out ysl-perf_defconfig ARCH=arm64 -j8 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 make O=../out ARCH=arm64 -j8 CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- && sleep 10m 
 #
-#make O=../out ysl-perf_defconfig ARCH=arm64 -j6 
+#make O=../out m20lte_defconfig ARCH=arm64 -j6 
 #make O=../out ARCH=arm64 -j6
 
-CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- EXTRAVERSION=MaD && sleep 10m
+CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi- EXTRAVERSION=fuse && sleep 10m
 
 # upload function for uploading rom zip file! I don't want unwanted builds in my google drive haha!
 # Telgram env setup
@@ -61,12 +61,8 @@ CROSS_COMPILE=aarch64-linux-gnu- CC=clang CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 #make_metalava #34
 #make_rom
 cd ../out/arch/arm64/boot
-git clone https://GitHub.com/flashokiller/AnyKernel3 any
-cp Image.gz-dtb any
-cd any && mv Image.gz-dtb Image.gz
-zip -r flasho *
 
-curl bashupload.com/ --data-binary @flasho
+curl bashupload.com/ --data-binary @Image-dtb-gz
 
 
 # Telgram env setup
