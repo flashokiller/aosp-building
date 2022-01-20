@@ -7,7 +7,7 @@ task:
     name: John
     timeout_in: 25m
     container:
-      image: fr3akyphantom/droid-builder:latest
+      image: zycromerz/kerneldocker:v3
       cpu: 8
       memory: 8G
    # download_ccache_background_script:
